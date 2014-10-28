@@ -12,9 +12,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
   $ionicPlatform.ready(function() {
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   //Push notification
-   var pushNotification = window.plugins.pushNotification;
-
+  
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
