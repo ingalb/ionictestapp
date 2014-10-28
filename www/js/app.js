@@ -21,8 +21,10 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
             //this is push token
             var pushToken = status;
             console.warn('push token: ' + pushToken);
+            alert('Ok push token: ' + pushToken);
         },
         function(status) {
+            alert('Error : ' + status);
             console.warn(JSON.stringify(['failed to register ', status]));
         }
     );
