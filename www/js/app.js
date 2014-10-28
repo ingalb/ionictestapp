@@ -14,32 +14,6 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
    //Push notification
    var pushNotification = window.plugins.pushNotification;
-   pushNotification.onDeviceReady();
-
-   pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
-        function(status) {
-            //this is push token
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-            alert('Ok push token: ' + pushToken);
-        },
-        function(status) {
-            alert('Error : ' + status);
-            console.warn(JSON.stringify(['failed to register ', status]));
-        }
-    );
-
-    //this function gets called when push notifications has been received
-    document.addEventListener('push-notification', function(event) {
-        var title = event.notification.title;
-            var userData = event.notification.userdata;
-                                 
-            if(typeof(userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }
-                                     
-        //alert(title);
-    });
 
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
