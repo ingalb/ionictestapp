@@ -1,0 +1,46 @@
+<ion-view title="Klasifikimi">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+<div class="bar bar-subheader">
+  <h2 class="title">Superliga {{sezoni}}</h2>
+</div>
+
+<ion-content class="has-subheader">
+<div id="sfondi">
+
+ <div class="item item-divider klasifikimi-header">
+  <div class="row">
+    <div class="col col-15 col-center">N°</div>
+    <div class="col col-33">Ekipi</div>
+    <div class="col col-center">Pike</div>
+    <div class="col col-center">Nd</div>
+    <div class="col col-center">Glv</div>
+  </div>
+ </div>
+ <div class="item item-text-wrap">
+  <div class="row {{item.name}} rnk" ng-repeat="item in items">
+    <div class="col col-center"><span class="rank rank-{{item.rank}}">{{item.rank}}</span></div>
+    <div class="col col-33">{{item.name}}</div>
+    <div class="col col-center"><b>{{item.pike}}</b></div>
+    <div class="col col-center">{{item.ndeshje}}</div>
+    <div class="col col-center">{{item.golash - item.golap}}</div>
+  </div>
+ </div>
+</div>
+</ion-content>
+</ion-view>
+
+<script id="popup-template.html" type="text/ng-template">
+    <div class="modal">
+      <ion-header-bar>
+        <h1 class="title">Zgjidh sezonin</h1>
+      </ion-header-bar>
+      <ion-content>
+      <div class="list"><label class="item item-radio"><input type="radio" ng-model="sezon_id" value="100" name="seson"><div class="item-content">2014-15</div><i class="radio-icon ion-checkmark"></i></label><label class="item item-radio"><input ng-model="sezon_id" type="radio" value="97" name="seson"><div class="item-content">2013-14</div><i class="radio-icon ion-checkmark"></i></label><label class="item item-radio"><input ng-model="seson" type="radio" value="85" name="seson"><div class="item-content">2012-13</div><i class="radio-icon ion-checkmark"></i></label><label class="item item-radio"><input ng-model="seson" type="radio" value="10" name="seson"><div class="item-content">2011-12</div><i class="radio-icon ion-checkmark"></i></label></div>
+
+
+        <button class="button button-full" ng-click="closeModal()">OK</button>
+      </ion-content>
+    </div>
+</script>
