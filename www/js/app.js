@@ -8,11 +8,13 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //angular.module('starter', ['angular-carousel'])
 
 .run(function($ionicPlatform) {
+  alert("OK 1");
    var gaPlugin;
   $ionicPlatform.ready(function() {
+   alert("OK");
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   alert("OK");
+   
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
