@@ -8,13 +8,6 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //angular.module('starter', ['angular-carousel'])
 
 .run(function($ionicPlatform) {
-   var gaPlugin;
-   gaPlugin = window.plugins.gaPlugin;
-   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   document.addEventListener("deviceready", initPushwoosh, true);
-   test();
-
-
 function initPushwoosh()
 {
     //get pushwoosh plugin
@@ -46,6 +39,15 @@ function initPushwoosh()
         alert(title);
     });
 }
+function test(){
+alert("test alert");
+}
+
+   var gaPlugin;
+   gaPlugin = window.plugins.gaPlugin;
+   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+   document.addEventListener("deviceready", initPushwoosh, true);
+   test();
 
   $ionicPlatform.ready(function() {
    if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -58,10 +60,6 @@ function initPushwoosh()
   });
 })
 
-
-function test(){
-alert("function OK!")
-}
 
 
 .config(function($stateProvider, $urlRouterProvider) {
