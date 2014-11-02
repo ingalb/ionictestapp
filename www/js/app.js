@@ -11,6 +11,42 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
    var gaPlugin;
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+   document.addEventListener("deviceready", initPushwoosh, true);
+   test();
+
+
+function initPushwoosh()
+{
+    //get pushwoosh plugin
+    var pushNotification = window.plugins.pushNotification;
+    //notify plugin that device is ready, this is VERY important as it will dispatch on start push notification
+    pushNotification.onDeviceReady();
+ 
+    //register for push notifications
+    pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
+        function(status) {
+            //this is push token
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
+ 
+    //this function gets called when push notifications has been received
+    document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+            var userData = event.notification.userdata;
+                                 
+            if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+                                     
+        alert(title);
+    });
+}
+
   $ionicPlatform.ready(function() {
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -21,6 +57,12 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     }
   });
 })
+
+
+function test(){
+alert("function OK!")
+}
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
