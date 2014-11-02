@@ -9,10 +9,9 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 .run(function($ionicPlatform) {
    var gaPlugin;
-  $ionicPlatform.ready(function() {
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   alert("OK ready");
+  $ionicPlatform.ready(function() {
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
