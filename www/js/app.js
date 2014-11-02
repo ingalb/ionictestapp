@@ -9,15 +9,15 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 .run(function($ionicPlatform) {
 
-//function test(){
+function test(){
 alert("test alert");
-//}
+}
 
    var gaPlugin;
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-//   document.addEventListener("deviceready", initPushwoosh, true);
-//   test();
+   document.addEventListener("deviceready", initPushwoosh, true);
+   test();
 
   $ionicPlatform.ready(function() {
    if(window.cordova && window.cordova.plugins.Keyboard) {
