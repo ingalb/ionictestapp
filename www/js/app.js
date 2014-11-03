@@ -7,7 +7,7 @@
 angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize'])
 //angular.module('starter', ['angular-carousel'])
 
-.run(function($ionicPlatform) {
+/*.run(function($ionicPlatform) {
 
 function test(){
 alert("test alert");
@@ -28,7 +28,7 @@ alert("test alert");
       StatusBar.styleDefault();
     }
   });
-})
+}) **/
 
 
 
