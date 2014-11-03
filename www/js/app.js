@@ -7,19 +7,16 @@
 angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize'])
 //angular.module('starter', ['angular-carousel'])
 
-/*.run(function($ionicPlatform) {
-
-function test(){
-alert("test alert");
-}
+.run(function($ionicPlatform) {
 
    var gaPlugin;
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
    document.addEventListener("deviceready", initPushwoosh, true);
-   test();
+   
 
   $ionicPlatform.ready(function() {
+   alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
@@ -28,7 +25,7 @@ alert("test alert");
       StatusBar.styleDefault();
     }
   });
-}) **/
+})
 
 
 
