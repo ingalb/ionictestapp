@@ -26,13 +26,8 @@
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script> 
     <script>
-        var gaPlugin;
-        gaPlugin = window.plugins.gaPlugin;
-        gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-        document.addEventListener("deviceready", initPushwoosh, true);
-         
-        function initPushwoosh()
-{
+  function initPushwoosh()
+    {
     //get pushwoosh plugin
     var pushNotification = window.plugins.pushNotification;
     //notify plugin that device is ready, this is VERY important as it will dispatch on start push notification
@@ -61,7 +56,15 @@
                                      
         alert(title);
     });
-}
+   }
+ function ale(){alert("alert 2");}
+
+        var gaPlugin;
+        gaPlugin = window.plugins.gaPlugin;
+        gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+        document.addEventListener("deviceready", initPushwoosh, true);
+        alert("ok 1");
+        ale();  
 
     </script>
 
