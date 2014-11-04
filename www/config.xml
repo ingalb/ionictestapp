@@ -34,7 +34,7 @@
 
     <gap:plugin name="com.adobe.plugins.gaplugin" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
+  <!--  <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>-->
 
    
     <icon src="icon.png" />

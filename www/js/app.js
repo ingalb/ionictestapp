@@ -9,10 +9,12 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 .run(function($ionicPlatform) {
 
-   var gaPlugin;
-   gaPlugin = window.plugins.gaPlugin;
-   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   alert("READY IONIC");
+//   var gaPlugin;
+//   gaPlugin = window.plugins.gaPlugin;
+//   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+//   alert("READY IONIC");
+
+  //$ionicPlatform.on(function(){}
 
   $ionicPlatform.ready(function() {
    alert("Ready");
