@@ -9,7 +9,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 .run(function($ionicPlatform) {
 
-//   var gaPlugin;
+   var gaPlugin;
 //   gaPlugin = window.plugins.gaPlugin;
 //   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
 //   alert("READY IONIC");
@@ -17,6 +17,9 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
   //$ionicPlatform.on(function(){}
 
   $ionicPlatform.ready(function() {
+   //alert("Ready");
+   gaPlugin = window.plugins.gaPlugin;
+   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
    alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
