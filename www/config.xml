@@ -2,8 +2,8 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.vllaznia"
-        version = "2.1">
-    <name>Futboll Klub Vllaznia App</name>
+        version = "2.0">
+    <name>Vllaznia App</name>
 
     <description>
        Aplikacioni realizuar per Futboll Klub Vllaznia Shkoder. Historia, lajme, informacione dhe statistika nga ekipi i pare shqiptar Vllaznia Shkoder (Albania). 
