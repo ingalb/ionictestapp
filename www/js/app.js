@@ -23,7 +23,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //   alert("Ready 1");
    pushNotification = window.plugins.pushNotification;  
 //   alert("Ready 2");
-   pushNotification.onDeviceReady();
+//   pushNotification.onDeviceReady();
 //   alert("Ready 3");
    pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
         function(status) {
