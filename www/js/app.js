@@ -21,11 +21,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
 //   alert("Ready 1");
-   pushNotification = window.plugins.pushNotification;  
+//   pushNotification = window.plugins.pushNotification;  
 //   alert("Ready 2");
 //   pushNotification.onDeviceReady();
 //   alert("Ready 3");
-   pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
+/*  pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
         function(status) {
             //this is push token
             var pushToken = status;
@@ -37,7 +37,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
             alert("Failed reg");
         }
     ); 
-
+*/
   // alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
