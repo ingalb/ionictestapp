@@ -28,6 +28,7 @@
     <script>
   function initPushwoosh()
     {
+    alert("Push");
     //get pushwoosh plugin
     var pushNotification = window.plugins.pushNotification;
     //notify plugin that device is ready, this is VERY important as it will dispatch on start push notification
@@ -62,7 +63,7 @@
     //    var gaPlugin;
     //    gaPlugin = window.plugins.gaPlugin;
     //    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-        document.addEventListener("deviceready", initPushwoosh, true);
+     //   document.addEventListener("deviceready", initPushwoosh, true);
         alert("ok 1");
         ale();  
 

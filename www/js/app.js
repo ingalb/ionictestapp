@@ -13,7 +13,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
  //  document.addEventListener("deviceready", initPushwoosh, true);
-   
+   alert("READY IONIC");
 
   $ionicPlatform.ready(function() {
    alert("Ready");
