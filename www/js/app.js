@@ -16,6 +16,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
   $ionicPlatform.ready(function() {
    alert("Ready");
+   alert("version: "+ version());
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }

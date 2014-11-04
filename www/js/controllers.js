@@ -21,7 +21,6 @@ angular.module('vllaznia.controllers', [])
 
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
-        var gaPlugin;
         $scope.go = function ( path ) {
           //alert(path);
           $state.go('app.ndeshja', {ndeshjaId: path} );
