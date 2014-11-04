@@ -21,6 +21,7 @@ angular.module('vllaznia.controllers', [])
 
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
+        var gaPlugin;
         $scope.go = function ( path ) {
           //alert(path);
           $state.go('app.ndeshja', {ndeshjaId: path} );
@@ -33,6 +34,9 @@ angular.module('vllaznia.controllers', [])
 	    showDelay: 100
 	});     
         LajmeService.getSlider(function(data) {
+            gaPlugin = window.plugins.gaPlugin;
+            gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+            console.log("slider");
             $scope.slider = data;
             $ionicLoading.hide();
             $ionicSlideBoxDelegate.update();
