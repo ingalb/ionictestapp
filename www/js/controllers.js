@@ -34,9 +34,9 @@ angular.module('vllaznia.controllers', [])
 	    showDelay: 100
 	});     
         LajmeService.getSlider(function(data) {
-            gaPlugin = window.plugins.gaPlugin;
-            gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-            console.log("slider");
+           // gaPlugin = window.plugins.gaPlugin;
+           // gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+           // console.log("slider");
             $scope.slider = data;
             $ionicLoading.hide();
             $ionicSlideBoxDelegate.update();
