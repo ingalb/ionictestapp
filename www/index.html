@@ -26,38 +26,6 @@
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script> 
     <script>
-  function initPushwoosh()
-    {
-    alert("Push");
-    //get pushwoosh plugin
-    var pushNotification = window.plugins.pushNotification;
-    //notify plugin that device is ready, this is VERY important as it will dispatch on start push notification
-    pushNotification.onDeviceReady();
- 
-    //register for push notifications
-    pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149"},
-        function(status) {
-            //this is push token
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-        },
-        function(status) {
-            console.warn(JSON.stringify(['failed to register ', status]));
-        }
-    );
- 
-    //this function gets called when push notifications has been received
-    document.addEventListener('push-notification', function(event) {
-        var title = event.notification.title;
-            var userData = event.notification.userdata;
-                                 
-            if(typeof(userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }
-                                     
-        alert(title);
-    });
-   }
  function ale(){alert("alert 2");}
 
     //    var gaPlugin;
@@ -66,10 +34,11 @@
      //   document.addEventListener("deviceready", initPushwoosh, true);
         alert("ok 1");
         ale();  
-        initPushwoosh();
+       // initPushwoosh();
         var gaPlugin;
         gaPlugin = window.plugins.gaPlugin;
         gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
+        console.log("init");
 
     </script>
 
