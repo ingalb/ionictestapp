@@ -17,14 +17,14 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
   //$ionicPlatform.on(function(){}
   $ionicPlatform.ready(function() {
-   alert("Ready");
+//   alert("Ready");
    gaPlugin = window.plugins.gaPlugin;
    gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-   alert("Ready 1");
+//   alert("Ready 1");
    pushNotification = window.plugins.pushNotification;  
-   alert("Ready 2");
+//   alert("Ready 2");
    pushNotification.onDeviceReady();
-   alert("Ready 3");
+//   alert("Ready 3");
    pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
         function(status) {
             //this is push token
@@ -46,16 +46,6 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-   
-   document.addEventListener('push-notification', function(event) {
-        var title = event.notification.title;
-            var userData = event.notification.userdata;
-                                 
-            if(typeof(userData) != "undefined") {
-            console.warn('user data: ' + JSON.stringify(userData));
-        }                              
-        alert(title);
-    });
 
   });
 })
