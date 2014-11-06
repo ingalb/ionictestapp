@@ -20,18 +20,18 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //   alert("Ready");
      gaPlugin = window.plugins.gaPlugin;
      gaPlugin.init(function(msg) {
-                    alert("ga loaded "+msg);
+                    console.log("ga loaded "+msg);
                 },
                 function(msg) {
-                    alert("ga failed "+msg);
+                    console.log("ga failed "+msg);
                 }, "UA-2341193-8", 10);
 
 //   alert("Ready 1");
-//   pushNotification = window.plugins.pushNotification;  
+//     pushNotification = window.plugins.pushNotification;  
 //   alert("Ready 2");
-//   pushNotification.onDeviceReady();
+//     pushNotification.onDeviceReady();
 //   alert("Ready 3");
-/*  pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
+/*     pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
         function(status) {
             //this is push token
             var pushToken = status;
