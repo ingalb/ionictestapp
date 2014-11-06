@@ -280,6 +280,7 @@ angular.module('vllaznia.controllers', [])
         //$scope.playerID = 1;
        //$scope.item.pid = 1;
         //console.log($stateParams.lojtariId);
+        $scope.anim="";
         $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
 	    animation: 'fade-in',
@@ -291,6 +292,11 @@ angular.module('vllaznia.controllers', [])
         $ionicLoading.hide();
         //console.log($scope.item.pid);
         $scope.lojtariN = function(numri){
+          if($scope.anim === "slideUp")
+             $scope.anim = "slideDown";
+         else
+            $scope.anim = "slideUp";
+          // $scope.anim="slideLeft";
            numri = $scope.item.pid +1;
            if(numri>25){numri=1;
             $scope.item.pid=1;}
@@ -301,6 +307,10 @@ angular.module('vllaznia.controllers', [])
           // $scope.playerID = index+1;
          }
          $scope.lojtariP = function(numri){
+           if($scope.anim === "slideUp")
+             $scope.anim = "slideDown";
+           else
+            $scope.anim = "slideUp";
            numri = $scope.item.pid - 1;
            if(numri<1){numri=25;
            $scope.item.pid=25;}
