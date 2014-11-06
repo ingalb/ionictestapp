@@ -19,6 +19,20 @@ angular.module('vllaznia.controllers', [])
      };
     })
 
+  .filter('orderObjectBy', function() {
+   return function(items, field, reverse) {
+    var filtered = [];
+    angular.forEach(items, function(item) {
+      filtered.push(item);
+    });
+    filtered.sort(function (a, b) {
+      return (a[field] > b[field] ? 1 : -1);
+    });
+     if(reverse) filtered.reverse();
+      return filtered;
+    };
+  })
+
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
         $scope.go = function ( path ) {
@@ -133,8 +147,8 @@ angular.module('vllaznia.controllers', [])
             },
             barColor:'#cc3333',
             scaleColor:'#ddd',
-            lineWidth:8,
-            lineCap:'circle',
+            lineWidth:3,
+            lineCap:'round',
             size:'60'
         };
        (function update() {

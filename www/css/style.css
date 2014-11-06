@@ -178,6 +178,7 @@
      font-weight:bold;
      padding:2px;
      z-index: 601;
+     border-radius:3px;
 }
 .over1{text-decoration:line-through;font-size:12px;}
 
@@ -235,42 +236,49 @@
         font-size:12px;
 }
 .Gol, .Penallti{
-   background:url("../img/goal1.png") no-repeat;
-   padding-left:16px;
-   padding-bottom:2px;
+   background:url("../img/goal.png") no-repeat;
+   padding-left:22px;
+   padding-bottom:10px;
+   padding-top:3px;
    margin-left:2px;
-   margin-right:2px;
 }
-.humbur, Autogol{
+.Autogol{
    background:url("../img/autogol.png") no-repeat;
+   padding-left:22px;
+   padding-bottom:10px;
+   padding-top:3px;
+   margin-left:2px;
+}
+.humbur{
+   background:url("../img/phumbur.png") no-repeat;
 }
 .verdhe{
    background:url("../img/karton-verdhe.png") no-repeat;
-   padding-left:16px;
-   padding-bottom:2px;
+   padding-left:18px;
+   padding-bottom:10px;
+   padding-top:4px;
    margin-left:2px;
-   margin-right:2px;
 }
 .kuq{
    background:url("../img/karton-kuq.png") no-repeat;
-   padding-left:16px;
-   padding-bottom:2px;
+   padding-left:18px;
+   padding-bottom:10px;
+   padding-top:4px;
    margin-left:2px;
-   margin-right:2px;
 }
 .verdhe-kuq{
-   background:url("../img/2yc.gif") no-repeat;
-   padding-left:16px;
-   padding-bottom:2px;
+   background:url("../img/karton-vk.png") no-repeat;
+   padding-left:18px;
+   padding-bottom:10px;
+   padding-top:3px;
    margin-left:2px;
-   margin-right:2px;
 }
 .Demtim{
-   background:url("../img/demtim.gif") no-repeat;
-   padding-left:16px;
-   padding-bottom:2px;
+   background:url("../img/demtim.png") no-repeat;
+   padding-left:18px;
+   padding-bottom:10px;
+   padding-top:4px;
    margin-left:2px;
-   margin-right:2px;
 }
 .ndeshje{
    background:url("../img/ndeshje.png") no-repeat;
@@ -280,18 +288,19 @@
    margin-right:2px;
 }
 .Zevendesim{
-   background:url("../img/sub.png") no-repeat;
+   background:url("../img/zv.png") no-repeat;
    background-position-y:center; 
 }
 .zv-left{
-   padding-left:35px;
+   padding-left:25px;
 }
 .zv-right{
    background-position-x: right;
-   padding-right:35px;
+   padding-right:25px;
    font-size:12px;
 }
 .pad0{padding:0;}
+.pad5{padding:5px;}
 #font{font-size:12px;}
 .font9{font-size:9px;}
 .trofe{border-bottom: 1px solid #ededed; padding:5px;font-size:14px;}
@@ -341,3 +350,24 @@ font-weight: bold;
 font-size:24px;
 }
 .width-10{max-width:32px;}
+.ikona{
+   padding-left:28px;
+   padding-bottom:10px;
+   padding-top:2px;
+}
+.verdhe2x{
+   background:url("../img/karton-verdhe2x.png") no-repeat;
+}
+.kuq2x{
+   background:url("../img/karton-kuq2x.png") no-repeat;
+}
+.vk2x{
+   background:url("../img/karton-vk2x.png") no-repeat;
+}
+.ndeshje2x{
+   background:url("../img/ndeshje.png") no-repeat;
+}
+.gol2x{
+   background:url("../img/goal2x.png") no-repeat;
+   padding-left: 30px;
+}

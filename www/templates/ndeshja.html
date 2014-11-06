@@ -43,11 +43,11 @@
        <div id="ev0"></div>
        <div class="row" id="minuta" ng-repeat="eventet in item.eventi">
            <div class="col">
-              <div ng-if="eventet.ekipi==item.team1" class="eventi"><span class="icon {{eventet.tipo_evento}}"></span>{{eventet.emri}}
+              <div ng-if="eventet.ekipi==item.team1" class="eventi"><span class="icon {{eventet.tipo_evento}}">{{eventet.emri}}</span>
                  <p ng-if="eventet.tipo_evento=='Zevendesim' && eventet.ekipi==item.team1" id="font" class="zv-left {{eventet.tipo_evento}}">{{eventet.in}}<br>{{eventet.out}}</p>
               </div>
            </div>
-           <div class="col col-25 col-center" id="minuta"><span class="minuta">{{eventet.minuta}}'</span></div>
+           <div class="col col-20 col-center" id="minuta"><span class="minuta">{{eventet.minuta}}'</span></div>
            <div class="col col-right">
               <div ng-if="eventet.ekipi==item.team2" class="eventi">{{eventet.emri}}<span class="icon {{eventet.tipo_evento}}"></span>
                  <p ng-if="eventet.tipo_evento=='Zevendesim' && eventet.ekipi==item.team2" id="font" class="zv-right {{eventet.tipo_evento}}">{{eventet.in}}<br>{{eventet.out}}</p>
@@ -61,12 +61,12 @@
        <div class="item item-divider item-assertive col-center">Lojtaret</div>
        <div class="row">
            <div class="col col-50 col-right">
-              <div ng-repeat="lojtaret in item.formacionet" ng-if="lojtaret.ekipi==item.team1" class="list">
+              <div ng-repeat="lojtaret in item.formacionet | orderObjectBy:'item.formacionet.pozicioni':reverse" ng-if="lojtaret.ekipi==item.team1" class="list">
                  <p class="eventi" id="font"><b>{{lojtaret.lojtari}}</b><br><span class="font10">{{lojtaret.pozicioni}}</span></p>
               </div>
            </div>
            <div class="col col-50">
-              <div ng-repeat="lojtaret in item.formacionet" ng-if="lojtaret.ekipi==item.team2" class="list">
+              <div ng-repeat="lojtaret in item.formacionet | orderObjectBy:'lojtaret.pozicioni':reverse" ng-if="lojtaret.ekipi==item.team2" class="list">
                  <p class="eventi" id="font"><b>{{lojtaret.lojtari}}</b><br><span class="font10">{{lojtaret.pozicioni}}</span></p>
               </div>
            </div>
