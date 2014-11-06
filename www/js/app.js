@@ -9,7 +9,15 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 .run(function($ionicPlatform) {
 
-   var gaPlugin;
+//   var gaPlugin;
+   var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2341193-1']);
+    _gaq.push(['_setDomainName', 'none']);
+    _gaq.push(['_trackPageview', 'VllazniaApp']);
+
+   setTimeout(function(){
+   navigator.splashscreen.hide();}, 5000)
+
 //   var pushNotification;
 //   gaPlugin = window.plugins.gaPlugin;
 //   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
@@ -18,14 +26,14 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
   //$ionicPlatform.on(function(){}
   $ionicPlatform.ready(function() {
 //   alert("Ready");
-     gaPlugin = window.plugins.gaPlugin;
+/*     gaPlugin = window.plugins.gaPlugin;
      gaPlugin.init(function(msg) {
                     console.log("ga loaded "+msg);
                 },
                 function(msg) {
                     console.log("ga failed "+msg);
                 }, "UA-2341193-8", 10);
-
+*/
 //   alert("Ready 1");
 //     pushNotification = window.plugins.pushNotification;  
 //   alert("Ready 2");

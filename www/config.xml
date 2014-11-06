@@ -24,7 +24,8 @@
    
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
-    <preference name="DisallowOverscroll" value="true" />    
+    <preference name="DisallowOverscroll" value="true" />  
+    <preference name="auto-hide-splash-screen" value="false" />  
 
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.device-orientation" />
@@ -33,8 +34,8 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="com.adobe.plugins.gaplugin" />   
-<!--  <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
+ <!--   <gap:plugin name="com.adobe.plugins.gaplugin" />   
+        <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
 -->
 
    
