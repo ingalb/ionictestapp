@@ -20,10 +20,10 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //   alert("Ready");
      gaPlugin = window.plugins.gaPlugin;
      gaPlugin.init(function(msg) {
-                    console.log("ga loaded "+msg);
+                    alert("ga loaded "+msg);
                 },
                 function(msg) {
-                    console.log("ga failed "+msg);
+                    alert("ga failed "+msg);
                 }, "UA-2341193-8", 10);
 
 //   alert("Ready 1");
