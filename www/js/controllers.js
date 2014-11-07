@@ -169,13 +169,15 @@ angular.module('vllaznia.controllers', [])
             $scope.data = d1;
             //console.log(time+' '+percenti+' '+$scope.minuta);
             $ionicSlideBoxDelegate.update();
+            $ionicScrollDelegate.resize();
             $ionicLoading.hide();
         });
        }());
        $scope.slideTo = function(index) {
           $ionicSlideBoxDelegate.slide(index);
           $ionicSlideBoxDelegate.update();
-          $ionicScrollDelegate.scrollTop();
+          $ionicScrollDelegate.resize();
+          $ionicScrollDelegate.scrollTop(true);
        }
        $scope.doRefresh = function() {
          $scope.loadingIndicator = $ionicLoading.show({
@@ -199,7 +201,8 @@ angular.module('vllaznia.controllers', [])
             $scope.percent = Math.floor(percenti/90*100);         
             $scope.data = d1;
             $scope.$broadcast('scroll.refreshComplete');
-            $ionicScrollDelegate.scrollTop();
+            $ionicScrollDelegate.resize();
+            $ionicScrollDelegate.scrollTop(true);
             $ionicSlideBoxDelegate.update();
             $ionicLoading.hide();
         });
@@ -325,12 +328,30 @@ angular.module('vllaznia.controllers', [])
 
   .controller('KlubiCtrl', function($scope, $ionicLoading, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
         $scope.title="Klubi";
-        $scope.slideTo = function(index) {
-          if(index){$scope.title="Trofetë";}
-          else{$scope.title="Historia";}
-          $ionicSlideBoxDelegate.slide(index);
+        $scope.slideHasChanged = function(){
+          $ionicScrollDelegate.resize();
           $ionicSlideBoxDelegate.update();
-          $ionicScrollDelegate.scrollTop();
+          $ionicScrollDelegate.scrollTop(true);
+         }
+        $scope.slideTo = function(index) {
+          if(index){
+          $scope.title="Trofetë";
+          $ionicSlideBoxDelegate.slide(index);
+          $ionicScrollDelegate.resize();
+          $ionicSlideBoxDelegate.update();
+          $ionicScrollDelegate.scrollTop(true);
+          }
+          else{
+          $scope.title="Historia";
+          $ionicSlideBoxDelegate.slide(index);
+          $ionicScrollDelegate.resize();
+          $ionicSlideBoxDelegate.update();
+          $ionicScrollDelegate.scrollTop(true);
+          }
+          $ionicSlideBoxDelegate.slide(index);
+          $ionicScrollDelegate.resize();
+          $ionicSlideBoxDelegate.update();
+          $ionicScrollDelegate.scrollTop(true);
        }
     })
 

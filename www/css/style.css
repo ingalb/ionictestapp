@@ -140,6 +140,7 @@
     padding: 5px;
     position: absolute;
     width: 100%;
+    text-decoration: none;
 }
 .ion-record:before{color:#cc3333;}
 /* .bar .title{overflow:visible;} */
