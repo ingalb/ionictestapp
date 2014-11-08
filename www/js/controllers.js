@@ -33,7 +33,7 @@ angular.module('vllaznia.controllers', [])
     };
   })
 
-    .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $ionicLoading, LajmeService, NdeshjetService) {
+    .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
         $scope.go = function ( path ) {
           //alert(path);
@@ -71,6 +71,15 @@ angular.module('vllaznia.controllers', [])
          //$scope.data = d1;
          return ( d1>d2);
        };
+
+
+     (function update() {
+        $timeout(update, 12000);
+        NdeshjetService.getSuperligaLastNdeshje(function(data) {
+            //alert(tani);
+            $scope.items = data;
+        });
+       }());
 
        
     })
