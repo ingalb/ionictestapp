@@ -15,16 +15,24 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     _gaq.push(['_setDomainName', 'none']);
     _gaq.push(['_trackPageview', 'VllazniaApp']);
 */
-   setTimeout(function(){
-   navigator.splashscreen.hide();}, 5000)
+//   setTimeout(function(){
+//   navigator.splashscreen.hide();}, 5000)
 
 //   var pushNotification;
 //   gaPlugin = window.plugins.gaPlugin;
 //   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
 //   alert("READY IONIC");
 
+      ga_storage._setAccount('UA-2341193-8'); //Replace with your own
+      
   //$ionicPlatform.on(function(){}
   $ionicPlatform.ready(function() {
+
+//      ga_storage._setAccount('UA-2341193-8'); //Replace with your own
+//      ga_storage._trackPageview('/index.html');
+
+
+
 //   alert("Ready");
 /*     gaPlugin = window.plugins.gaPlugin;
      gaPlugin.init(function(msg) {
