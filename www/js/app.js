@@ -49,7 +49,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
-                                alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                                //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
 //   alert("Ready");
