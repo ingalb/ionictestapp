@@ -24,14 +24,32 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //   alert("READY IONIC");
 
       ga_storage._setAccount('UA-2341193-8'); //Replace with your own
-      
+
   //$ionicPlatform.on(function(){}
   $ionicPlatform.ready(function() {
 
 //      ga_storage._setAccount('UA-2341193-8'); //Replace with your own
 //      ga_storage._trackPageview('/index.html');
 
+     PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
+      alert("My push token: " + pushToken);
+      },
+      function (error) {
+      alert("Alert token: " + error);
+      });
 
+      PushNotification.getDeviceId(function (deviceId) {
+                                        alert("Your device ID: " + deviceId);
+                                    },
+                                    function (error) {
+                                        alert("Error Device: " + error);
+                                    });
+
+     document.addEventListener('pushapps.message-received', function(event) {
+                                var notification = event.notification;
+                                // This is the entire object, just take the wanted property
+                                alert("Recive Notification" + notification);
+                              });
 
 //   alert("Ready");
 /*     gaPlugin = window.plugins.gaPlugin;
@@ -43,7 +61,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                 }, "UA-2341193-8", 10);
 */
 //   alert("Ready 1");
-//     pushNotification = window.plugins.pushNotification;  
+//     pushNotification = window.plugins.pushNotification;
 //   alert("Ready 2");
 //     pushNotification.onDeviceReady();
 //   alert("Ready 3");
@@ -58,7 +76,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
             console.warn(JSON.stringify(['failed to register ', status]));
             alert("Failed reg");
         }
-    ); 
+    );
 */
   // alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -211,4 +229,3 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/index');
 });
-
