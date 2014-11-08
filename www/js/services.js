@@ -33,9 +33,18 @@ angular.module('vllaznia.services', [])
                 $http.get('http://ingalb.info/as/ndeshjet.php?id=superliga&ekipi=13').success(
                     function(data) {
                         ndeshjet = data;
+                        window.localStorage["ndeshjet"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR:" + data);
+                if(window.localStorage["ndeshjet"] !== undefined) {
+                    ndeshjet = JSON.parse(window.localStorage["ndeshjet"]);
+                    callback(ndeshjet);
+                }
+              });
+
             },
             getSuperligaLastNdeshje: function(callback) {
                 $http.get('http://ingalb.info/as/ndeshjet.php?id=superliga&ekipi=13').success(
@@ -90,9 +99,17 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.fkvllaznia.net/main/app/lajme.php').success(
                     function(data) {
                         lajmet = data;
+                        window.localStorage["lajmet"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["lajmet"] !== undefined) {
+                    lajmet = JSON.parse(window.localStorage["lajmet"]);
+                    callback(lajmet);
+                }
+              });
             },
            getSlider: function(callback) {
                 $http.get('http://www.fkvllaznia.net/main/app/lajme.php?nr=3').success(
@@ -125,9 +142,17 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.ingalb.com/as/klasifikimi.php',{params:{id: sezoniId}}).success(
                     function(data) {
                         ndeshja = data;
+                        window.localStorage["klasifikimi"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["klasifikimi"] !== undefined) {
+                    klasifikimi = JSON.parse(window.localStorage["klasifikimi"]);
+                    callback(klasifikimi);
+                }
+              });
             }
         }
 
@@ -153,9 +178,17 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.ingalb.com/as/ekipi.php',{params:{id: sezoniId, ekipi: ekipiId}}).success(
                     function(data) {
                         ekipi = data;
+                        window.localStorage["klasifikimi"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["klasifikimi"] !== undefined) {
+                    ekipi = JSON.parse(window.localStorage["ekipi"]);
+                    callback(ekipi);
+                  }
+                });
             },
             get: function(lojtariId) {
               return ekipi[lojtariId - 1];
