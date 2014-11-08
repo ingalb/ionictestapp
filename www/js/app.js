@@ -32,23 +32,24 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //      ga_storage._trackPageview('/index.html');
 
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
-      alert("My push token: " + pushToken);
+      console.log("My push token: " + pushToken);
       },
       function (error) {
-      alert("Alert token: " + error);
+      console.log("Alert token: " + error);
       });
 
       PushNotification.getDeviceId(function (deviceId) {
-                                        alert("Your device ID: " + deviceId);
+                                        console.log("Your device ID: " + deviceId);
                                     },
                                     function (error) {
-                                        alert("Error Device: " + error);
+                                        console.log("Error Device: " + error);
                                     });
 
      document.addEventListener('pushapps.message-received', function(event) {
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
-                                alert("Recive Notification" + notification);
+                                console.log("Recive Notification" + notification);
+                                alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
 //   alert("Ready");
