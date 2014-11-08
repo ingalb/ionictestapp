@@ -12,7 +12,7 @@ angular.module('vllaznia.controllers', [])
    .filter('indexData', function($filter){
      return function(input)
      {
-       if(input == null){ return ""; } 
+       if(input == null){ return ""; }
        var value = input.split("+");
        var _date = $filter('date')(new Date(value[0]),'dd/MM/yyyy - HH:mm');
        return _date;
@@ -40,12 +40,12 @@ angular.module('vllaznia.controllers', [])
           $state.go('app.ndeshja', {ndeshjaId: path} );
         };
         $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 100
-	});     
+	         content: 'Loading Data',
+	         animation: 'fade-in',
+	         showBackdrop: true,
+	         maxWidth: 200,
+	         showDelay: 100
+	        });
         LajmeService.getSlider(function(data) {
            // gaPlugin = window.plugins.gaPlugin;
            // gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
@@ -53,7 +53,7 @@ angular.module('vllaznia.controllers', [])
             $scope.slider = data;
             $ionicLoading.hide();
             $ionicSlideBoxDelegate.update();
-            
+
         });
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
             //alert(tani);
@@ -65,9 +65,9 @@ angular.module('vllaznia.controllers', [])
          //console.log(tani);
          d2 = new Date(tani.getTime()- 800000000);
         // d3 = new Date(tani.getTime() + 800000000);
-       
+
          //console.log(d2);
-         d1 = new Date(item.data); 
+         d1 = new Date(item.data);
          //$scope.data = d1;
          return ( d1>d2);
        };
@@ -76,12 +76,12 @@ angular.module('vllaznia.controllers', [])
      (function update() {
         $timeout(update, 12000);
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
-            //alert(tani);
+            console.log(tani);
             $scope.items = data;
         });
        }());
 
-       
+
     })
 
     .controller('LajmeCtrl', function($scope, $sce, $ionicLoading, LajmeService) {
@@ -106,7 +106,7 @@ angular.module('vllaznia.controllers', [])
     })
 
     .controller('LajmeDetCtrl', function($scope, $sce, $stateParams, $ionicLoading, LajmeService) {
-        
+
         $scope.shareL = function(message, subject, image, link){
           window.plugins.socialsharing.share(message, subject, image, link, this.onSuccess, this.onError);
         }
@@ -166,15 +166,15 @@ angular.module('vllaznia.controllers', [])
             tani = new Date();
             $scope.item = data;
             $scope.content = data.kronika;
-            //d1 = new Date('2014 05 13 21:00:00'); 
-            d1 = new Date(data.data); 
+            //d1 = new Date('2014 05 13 21:00:00');
+            d1 = new Date(data.data);
             time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){mininuti=time; percenti=time; $scope.minuta = Math.floor(minuti);}
             else if(time>47 && time<60){minuti="HT"; percenti="45"; $scope.minuta = minuti;}
             else if(time>60 && time<107){minuti=(time-15); percenti=(time-15); $scope.minuta = Math.floor(minuti);}
             else {minuti="FT"; percenti="90"; $scope.minuta = minuti;}
-            $scope.percent = Math.floor(percenti/90*100);         
+            $scope.percent = Math.floor(percenti/90*100);
             $scope.data = d1;
             //console.log(time+' '+percenti+' '+$scope.minuta);
             $ionicSlideBoxDelegate.update();
@@ -200,14 +200,14 @@ angular.module('vllaznia.controllers', [])
             tani = new Date();
             $scope.item = data;
             $scope.content = data.kronika;
-            d1 = new Date(data.data); 
+            d1 = new Date(data.data);
             time = (tani-d1)/(1000*60);
             if(time<0){minuti=" ";percenti="0"; $scope.minuta = minuti;}
             else if(time>0 && time<46){minuti=time; percenti=time; $scope.minuta = Math.floor(minuti/90*100);}
             else if(time>48 && time<60){minuti="HT"; percenti="45"; $scope.minuta = minuti;}
             else if(time>60 && time<107){minuti=(time-15); percenti=(time-15); $scope.minuta = Math.floor(percenti/90*100);}
             else {minuti="FT"; percenti="90"; $scope.minuta = minuti;}
-            $scope.percent = Math.floor(percenti/90*100);         
+            $scope.percent = Math.floor(percenti/90*100);
             $scope.data = d1;
             $scope.$broadcast('scroll.refreshComplete');
             $ionicScrollDelegate.resize();
@@ -227,7 +227,7 @@ angular.module('vllaznia.controllers', [])
        { text: "Kategoria Pare 2014-15", value: 101 },
        { text: "Kategoria Pare 2013-14", value: 98 }
       ];
-       
+
        $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
 	    animation: 'fade-in',
@@ -253,7 +253,7 @@ angular.module('vllaznia.controllers', [])
       $scope.modal.show()
     }
 
-    $scope.closeModal = function() {    
+    $scope.closeModal = function() {
       $scope.modal.hide();
       KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
             $scope.items = data;
@@ -376,6 +376,7 @@ angular.module('vllaznia.controllers', [])
             $scope.posts = data;
             $ionicLoading.hide();
         });
+        $scope.browse = function(v) {
+          window.open(v, "_system", "location=yes");
+        }
     });
-
-

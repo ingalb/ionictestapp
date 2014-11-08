@@ -41,12 +41,20 @@ angular.module('vllaznia.services', [])
                 $http.get('http://ingalb.info/as/ndeshjet.php?id=superliga&ekipi=13').success(
                     function(data) {
                         ndeshjet = data;
+                        window.localStorage["lastNdeshjet"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: last ndeshje" + data);
+                if(window.localStorage["lastNdeshjet"] !== undefined) {
+                    lastndeshjet = JSON.parse(window.localStorage["lastNdeshjet"]);
+                    callback(lastndeshjet);
+                }
+              });
             },
             getSuperligaVllazniaId: function(ndeshjaId) {
-                return ndeshjet[ndeshjaId - 1];              
+                return ndeshjet[ndeshjaId - 1];
             },
             getReport: function(ndeshjaId, callback) {
                 $http.get('http://ingalb.info/as/ndeshja.php',{params:{id: 'superliga', ndeshja: ndeshjaId}}).success(
@@ -90,19 +98,28 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.fkvllaznia.net/main/app/lajme.php?nr=3').success(
                     function(data) {
                         lajmet = data;
+                        window.localStorage["lajmetSlider"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["lajmetSlider"] !== undefined) {
+                    lajmetSlider = JSON.parse(window.localStorage["lajmetSlider"]);
+                    callback(lajmetSlider);
+                }
+              });
+
             },
             getId: function(lajmiId) {
-                return lajmet[lajmiId - 1];              
+                return lajmet[lajmiId - 1];
             }
         }
     })
 
    .factory('KlasifikimiService', function($http) {
         var klasifikimi = [];
-        
+
         return {
             getAllKlasifikimi: function(sezoniId, callback) {
                 $http.get('http://www.ingalb.com/as/klasifikimi.php',{params:{id: sezoniId}}).success(
@@ -113,7 +130,7 @@ angular.module('vllaznia.services', [])
                 );
             }
         }
-        
+
        /** return {
             getAllKlasifikimi: function(callback) {
                 $http.get('http://www.ingalb.com/as/klasifikimi.php?id=superliga').success(
@@ -124,7 +141,7 @@ angular.module('vllaznia.services', [])
                 );
             },
             get: function(klasifikimiId) {
-              return klasifikimi[klasifikimiId - 1];              
+              return klasifikimi[klasifikimiId - 1];
             }
         } **/
     })
@@ -141,7 +158,7 @@ angular.module('vllaznia.services', [])
                 );
             },
             get: function(lojtariId) {
-              return ekipi[lojtariId - 1];              
+              return ekipi[lojtariId - 1];
             }
         }
     })
@@ -153,15 +170,20 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.fkvllaznia.net/main/forum/json.php').success(
                     function(data) {
                         postimet = data;
+                        window.localStorage["postimet"] = JSON.stringify(data);
                         callback(data);
                     }
-                );
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["postimet"] !== undefined) {
+                    postimet = JSON.parse(window.localStorage["postimet"]);
+                    callback(postimet);
+                }
+            });
             },
             get: function(postId) {
-                return postimet[postId - 1];              
+                return postimet[postId - 1];
             }
         }
     });
-
-
-
