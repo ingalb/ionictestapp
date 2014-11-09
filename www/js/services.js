@@ -178,13 +178,13 @@ angular.module('vllaznia.services', [])
                 $http.get('http://www.ingalb.com/as/ekipi.php',{params:{id: sezoniId, ekipi: ekipiId}}).success(
                     function(data) {
                         ekipi = data;
-                        window.localStorage["klasifikimi"] = JSON.stringify(data);
+                        window.localStorage["ekipi"] = JSON.stringify(data);
                         callback(data);
                     }
                 )
                 .error(function(data) {
                    console.log("ERROR: " + data);
-                if(window.localStorage["klasifikimi"] !== undefined) {
+                if(window.localStorage["ekipi"] !== undefined) {
                     ekipi = JSON.parse(window.localStorage["ekipi"]);
                     callback(ekipi);
                   }
