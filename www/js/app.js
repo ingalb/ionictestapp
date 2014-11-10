@@ -20,8 +20,8 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     }
 */
 
-     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
-     ga_storage._trackPageview('/index.html');
+//     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
+//     ga_storage._trackPageview('/index.html');
 
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
       console.log("My push token: " + pushToken);
