@@ -342,7 +342,7 @@ angular.module('vllaznia.controllers', [])
 
 
   .controller('KlubiCtrl', function($scope, $ionicLoading, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
-        ga_storage._trackPageview('#/app/klubi/', 'Vllaznia App Klubi');
+        ga_storage._trackPageview('#/app/klubi', 'Vllaznia App Klubi');
         $scope.title="Klubi";
         $scope.slideHasChanged = function(){
           $ionicScrollDelegate.resize();
@@ -372,7 +372,7 @@ angular.module('vllaznia.controllers', [])
     })
 
    .controller('ForumiCtrl', function($scope, $ionicLoading, ForumiService) {
-     ga_storage._trackPageview('#/app/forumi/', 'Vllaznia App Forumi');
+     ga_storage._trackPageview('#/app/forumi', 'Vllaznia App Forumi');
         $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
 	    animation: 'fade-in',

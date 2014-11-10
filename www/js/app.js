@@ -7,37 +7,21 @@
 angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize'])
 //angular.module('starter', ['angular-carousel'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicPopup) {
 
-//   var gaPlugin;
-  /* var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2341193-1']);
-    _gaq.push(['_setDomainName', 'none']);
-    _gaq.push(['_trackPageview', 'VllazniaApp']);
-*/
-//   setTimeout(function(){
-//   navigator.splashscreen.hide();}, 5000)
-
-//   var pushNotification;
-//   gaPlugin = window.plugins.gaPlugin;
-//   gaPlugin.init(successHandler, errorHandler, "UA-2341193-8", 10);
-//   alert("READY IONIC");
-
-    //  ga_storage._setAccount('UA-2341193-8'); //Replace with your own
-
-  //$ionicPlatform.on(function(){}
   $ionicPlatform.ready(function() {
 
-    try {
+/**    try{
         ga_storage._setAccount('UA-2341193-1');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
-        } catch (e) {
+    } catch (e) {
           console.log(e.message);
-         }
+    }
+*/
 
-//      ga_storage._setAccount('UA-2341193-8'); //Replace with your own
-//      ga_storage._trackPageview('/index.html');
+     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
+     ga_storage._trackPageview('/index.html');
 
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
       console.log("My push token: " + pushToken);
@@ -57,7 +41,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
-                                //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                                $ionicPopup.alert({
+                                   title: notification.Title,
+                                   template: notification.Message
+                                 });
+    //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
 //   alert("Ready");

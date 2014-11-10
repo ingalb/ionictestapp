@@ -16,7 +16,7 @@ angular.module('vllaznia.services', [])
               // Text will be wrapped if longer than maxWidth
               maxWidth: 400,
               // The delay in showing the indicator
-              showDelay: 500
+              showDelay: 20
             });
         },
         hide : function(){
