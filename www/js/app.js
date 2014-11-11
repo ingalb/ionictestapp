@@ -10,9 +10,8 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 .run(function($ionicPlatform) {
 
   $ionicPlatform.ready(function() {
-
     try{
-        ga_storage._setAccount('UA-2341193-9');
+        ga_storage._setAccount('UA-2341193-1');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
     } catch (e) {
