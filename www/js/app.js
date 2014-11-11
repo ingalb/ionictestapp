@@ -36,11 +36,23 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                     function (error) {
                                         console.log("Error Device: " + error);
                                     });
+      PushNotification.setTags([{
+        identifier: "vllaznia",
+        value: true
+        }], function () {
+        console.log("Your tag was successfully added");
+       }, function (message) {
+        console.log("ERROR: " + message);
+       });
 
      document.addEventListener('pushapps.message-received', function(event) {
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
+                                $ionicPopup.alert({
+                                  title: notification.Title,
+                                  template: notification.Message
+                                });
                                   //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
