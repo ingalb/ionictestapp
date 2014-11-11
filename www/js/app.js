@@ -7,7 +7,7 @@
 angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize'])
 //angular.module('starter', ['angular-carousel'])
 
-.run(function($ionicPlatform, $ionicPopup) {
+.run(function($ionicPlatform) {
 
   $ionicPlatform.ready(function() {
 
@@ -49,11 +49,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
-                                $ionicPopup.alert({
-                                  title: notification.Title,
-                                  template: notification.Message
-                                });
-                                  //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                              //  $ionicPopup.alert({
+                              //    title: notification.Title,
+                              //    template: notification.Message
+                              //  });
+                              //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
 //   alert("Ready");
