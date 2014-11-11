@@ -35,6 +35,7 @@ angular.module('vllaznia.controllers', [])
 
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
+        var timerhide = 5000;
         $scope.go = function ( path ) {
           //alert(path);
           $state.go('app.ndeshja', {ndeshjaId: path} );
@@ -81,8 +82,11 @@ angular.module('vllaznia.controllers', [])
         });
        }());
 
+      $timeout(function(){
+        $ionicLoading.hide();
+      },timerhide);
 
-    })
+      })
 
     .controller('LajmeCtrl', function($scope, $sce, $ionicLoading, LajmeService) {
 //      ga_storage._trackPageview('#/app/lajmet', 'Vllaznia App Lajmet');

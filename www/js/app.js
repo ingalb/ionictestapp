@@ -35,7 +35,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                     function (error) {
                                         console.log("Error Device: " + error);
                                     });
-      PushNotification.setTags([{
+/**      PushNotification.setTags([{
         identifier: "vllaznia",
         value: true
         }], function () {
@@ -43,7 +43,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
        }, function (message) {
         console.log("ERROR: " + message);
        });
-
+*/
      document.addEventListener('pushapps.message-received', function(event) {
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
