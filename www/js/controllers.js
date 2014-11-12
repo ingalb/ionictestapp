@@ -36,6 +36,7 @@ angular.module('vllaznia.controllers', [])
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
         var timerhide = 5000;
+        $scope.loadNdeshje = false;
         $scope.go = function ( path ) {
           //alert(path);
           $state.go('app.ndeshja', {ndeshjaId: path} );
@@ -60,6 +61,7 @@ angular.module('vllaznia.controllers', [])
             //alert(tani);
             $scope.items = data;
             $ionicLoading.hide();
+            $scope.loadNdeshje = true;
         });
 
        $scope.customArrayFilter = function (item) {
@@ -88,7 +90,7 @@ angular.module('vllaznia.controllers', [])
 
       })
 
-    .controller('LajmeCtrl', function($scope, $sce, $ionicLoading, LajmeService) {
+    .controller('LajmeCtrl', function($scope, $sce, $timeout, $ionicLoading, LajmeService) {
 //      ga_storage._trackPageview('#/app/lajmet', 'Vllaznia App Lajmet');
       $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
@@ -108,6 +110,9 @@ angular.module('vllaznia.controllers', [])
             $scope.$broadcast('scroll.refreshComplete');
         });
        }
+       $timeout(function(){
+         $ionicLoading.hide();
+       },5000);
     })
 
     .controller('LajmeDetCtrl', function($scope, $sce, $stateParams, $ionicLoading, LajmeService) {
@@ -126,7 +131,7 @@ angular.module('vllaznia.controllers', [])
         $ionicLoading.hide();
     })
 
-    .controller('NdeshjetCtrl', function($scope, $sce, $ionicLoading, NdeshjetService) {
+    .controller('NdeshjetCtrl', function($scope, $sce, $timeout, $ionicLoading, NdeshjetService) {
 //      ga_storage._trackPageview('#/app/ndeshjet', 'Vllaznia App Ndeshjet');
       $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
@@ -135,10 +140,13 @@ angular.module('vllaznia.controllers', [])
 	    maxWidth: 200,
 	    showDelay: 500
 	   });
-        NdeshjetService.getSuperligaVllaznia(function(data) {
+     NdeshjetService.getSuperligaVllaznia(function(data) {
             $scope.items = data;
             $ionicLoading.hide();
         });
+        $timeout(function(){
+          $ionicLoading.hide();
+        },5000);
       })
 
      .controller('NdeshjetDetCtrl', function($scope, $sce, $stateParams, $timeout, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicLoading, NdeshjaService) {
@@ -197,12 +205,12 @@ angular.module('vllaznia.controllers', [])
        }
        $scope.doRefresh = function() {
          $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 100
-	});
+	          content: 'Loading Data',
+	           animation: 'fade-in',
+	           showBackdrop: true,
+	           maxWidth: 200,
+	           showDelay: 100
+	       });
          NdeshjaService.getReport($stateParams.ndeshjaId, function(data) {
             tani = new Date();
             $scope.item = data;
@@ -226,7 +234,7 @@ angular.module('vllaznia.controllers', [])
     })
 
 
-    .controller('KlasifikimiCtrl', function($scope, $stateParams, $ionicLoading, KlasifikimiService, $ionicModal) {
+    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicModal) {
 //     ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App Klasifikimi');
      $scope.SezoneList = [
        { text: "Superliga 2014-15", value: 100 },
@@ -237,18 +245,22 @@ angular.module('vllaznia.controllers', [])
       ];
 
        $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 500
-	});
+	         content: 'Loading Data',
+	         animation: 'fade-in',
+	         showBackdrop: true,
+	         maxWidth: 200,
+	         showDelay: 500
+	     });
        $scope.sezoni = "2014-15";
        $scope.sezoni_id = 100;
-        KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
+       KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
             $scope.items = data;
             $ionicLoading.hide();
         });
+
+        $timeout(function(){
+          $ionicLoading.hide();
+        },6000);
 /**
     $ionicModal.fromTemplateUrl('popup-template.html', {
        scope: $scope,
@@ -279,24 +291,27 @@ angular.module('vllaznia.controllers', [])
         $scope.item = KlasifikimiService.get($stateParams.klasifikimiId);
     })
 
-    .controller('LojtaretCtrl', function($scope, $stateParams, $ionicLoading, EkipiService) {
+    .controller('LojtaretCtrl', function($scope, $timeout, $stateParams, $ionicLoading, EkipiService) {
 //      ga_storage._trackPageview('#/app/ekipi', 'Vllaznia App Ekipi');
         $scope.sezoni_id =100;
         $scope.ekipiId =13;
         $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 500
-	});
+	         content: 'Loading Data',
+	         animation: 'fade-in',
+	         showBackdrop: true,
+	         maxWidth: 200,
+	         showDelay: 500
+	      });
         EkipiService.getAllEkipi($scope.sezoni_id,$scope.ekipiId, function(data) {
             $scope.items = data;
             $ionicLoading.hide();
         });
+        $timeout(function(){
+          $ionicLoading.hide();
+        },6000);
     })
 
-    .controller('LojtaretDetCtrl', function($scope, $stateParams, $ionicLoading, EkipiService) {
+    .controller('LojtaretDetCtrl', function($scope, $stateParams, $timeout, $ionicLoading, EkipiService) {
 //      ga_storage._trackPageview('#/app/ekipi/'+ $stateParams.lojtariId+'', 'Vllaznia App Lojtari Det');
         //alert($stateParams.lojtariId);
         //$scope.playerID = 1;
@@ -304,12 +319,12 @@ angular.module('vllaznia.controllers', [])
         //console.log($stateParams.lojtariId);
         $scope.anim="";
         $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 50
-	});
+	         content: 'Loading Data',
+	         animation: 'fade-in',
+	         showBackdrop: true,
+	         maxWidth: 200,
+	         showDelay: 50
+	      });
         $scope.item = EkipiService.get($stateParams.lojtariId);
         $ionicLoading.hide();
         //console.log($scope.item.pid);
@@ -342,6 +357,9 @@ angular.module('vllaznia.controllers', [])
            //numri = $scope.item.pid;
           // $scope.playerID = index+1;
          }
+         $timeout(function(){
+           $ionicLoading.hide();
+         },6000);
     })
 
 
@@ -375,15 +393,23 @@ angular.module('vllaznia.controllers', [])
        }
     })
 
-   .controller('ForumiCtrl', function($scope, $ionicLoading, ForumiService) {
+
+    .controller('TvCtrl', function($scope) {
+          ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
+          $scope.browse = function(v) {
+            window.open(v, "_system", "location=yes");
+          }
+    })
+
+   .controller('ForumiCtrl', function($scope, $timeout, $ionicLoading, ForumiService) {
 //     ga_storage._trackPageview('#/app/forumi', 'Vllaznia App Forumi');
         $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 10
-	});
+	         content: 'Loading Data',
+	         animation: 'fade-in',
+	         showBackdrop: true,
+	         maxWidth: 200,
+	         showDelay: 10
+	      });
         ForumiService.getAllPostimet(function(data) {
             $scope.posts = data;
             $ionicLoading.hide();
@@ -391,4 +417,7 @@ angular.module('vllaznia.controllers', [])
         $scope.browse = function(v) {
           window.open(v, "_system", "location=yes");
         }
+        $timeout(function(){
+          $ionicLoading.hide();
+        },6000);
     });

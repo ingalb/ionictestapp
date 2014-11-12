@@ -19,6 +19,12 @@
         <h1 class="title">Ndeshjet e fundit</h1>
      </div>
      <div>
+         <div ng-hide="loadNdeshje">
+           <div class="spinner">
+             <div class="double-bounce1"></div>
+             <div class="double-bounce2"></div>
+           </div>
+         </div>
          <div class="rnk" ng-repeat="ndeshje in items | filter:customArrayFilter">
            <div ng-click="go('{{ndeshje.id}}')">
                <div class="row">
@@ -28,7 +34,7 @@
                    <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{ndeshje.logo1_m}}"><br>{{ndeshje.team1}}</div>
                    <div class="col col-33 col-center">
                        <div ng-if="ndeshje.over==0"><a class="rezultati"><span class="badge badge-assertive rezultati padding">{{ndeshje.gol1}}</span>-<span class="badge badge-assertive rezultati padding">{{ndeshje.gol2}}</span></a></div>
-                       <div ng-if="ndeshje.over>0" class="assertive"><a class="rezultati assertive">{{ndeshje.gol1_over}} - {{ndeshje.gol2_over}}</a></div> 
+                       <div ng-if="ndeshje.over>0" class="assertive"><a class="rezultati assertive">{{ndeshje.gol1_over}} - {{ndeshje.gol2_over}}</a></div>
                    </div>
                    <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{ndeshje.logo2_m}}"><br>{{ndeshje.team2}}</div>
                </div>

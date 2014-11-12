@@ -1,4 +1,8 @@
+var URL_APP = "http://vllaznia.cloudcontrolled.com/";
+
 angular.module('vllaznia.services', [])
+
+
 
 .factory('LoaderService', function($rootScope, $ionicLoading) {
   // Trigger the loading indicator
@@ -30,7 +34,7 @@ angular.module('vllaznia.services', [])
         var ndeshjet = [];
         return {
             getSuperligaVllaznia: function(callback) {
-                $http.get('http://ingalb.info/as/ndeshjet.php?id=superliga&ekipi=13').success(
+                $http.get(URL_APP+'ndeshjet.php?id=superliga&ekipi=13').success(
                     function(data) {
                         ndeshjet = data;
                         window.localStorage["ndeshjet"] = JSON.stringify(data);
@@ -47,7 +51,7 @@ angular.module('vllaznia.services', [])
 
             },
             getSuperligaLastNdeshje: function(callback) {
-                $http.get('http://ingalb.info/as/ndeshjet.php?id=superliga&ekipi=13').success(
+                $http.get(URL_APP+'ndeshjet.php?id=superliga&ekipi=13').success(
                     function(data) {
                         ndeshjet = data;
                         window.localStorage["lastNdeshjet"] = JSON.stringify(data);
@@ -66,7 +70,7 @@ angular.module('vllaznia.services', [])
                 return ndeshjet[ndeshjaId - 1];
             },
             getReport: function(ndeshjaId, callback) {
-                $http.get('http://ingalb.info/as/ndeshja.php',{params:{id: 'superliga', ndeshja: ndeshjaId}}).success(
+                $http.get(URL_APP+'ndeshja.php',{params:{id: 'superliga', ndeshja: ndeshjaId}}).success(
                     function(data) {
                         console.log(ndeshjaId);
                         console.log(data);
@@ -82,7 +86,7 @@ angular.module('vllaznia.services', [])
         var ndeshja = [];
         return {
             getReport: function(ndeshjaId, callback) {
-                $http.get('http://ingalb.info/as/ndeshja.php',{params:{id: 'superliga', ndeshja: ndeshjaId}}).success(
+                $http.get(URL_APP+'/ndeshja.php',{params:{id: 'superliga', ndeshja: ndeshjaId}}).success(
                     function(data) {
                         ndeshja = data;
                         callback(data);
@@ -139,7 +143,7 @@ angular.module('vllaznia.services', [])
 
         return {
             getAllKlasifikimi: function(sezoniId, callback) {
-                $http.get('http://www.ingalb.com/as/klasifikimi.php',{params:{id: sezoniId}}).success(
+                $http.get(URL_APP+'klasifikimi.php',{params:{id: sezoniId}}).success(
                     function(data) {
                         ndeshja = data;
                         window.localStorage["klasifikimi"] = JSON.stringify(data);
@@ -175,7 +179,7 @@ angular.module('vllaznia.services', [])
         var ekipi = [];
         return {
             getAllEkipi: function(sezoniId, ekipiId, callback) {
-                $http.get('http://www.ingalb.com/as/ekipi.php',{params:{id: sezoniId, ekipi: ekipiId}}).success(
+                $http.get(URL_APP+'ekipi.php',{params:{id: sezoniId, ekipi: ekipiId}}).success(
                     function(data) {
                         ekipi = data;
                         window.localStorage["ekipi"] = JSON.stringify(data);
