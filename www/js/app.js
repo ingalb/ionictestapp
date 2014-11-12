@@ -11,7 +11,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
   $ionicPlatform.ready(function() {
     try{
-        ga_storage._setAccount('UA-2341193-1');
+        ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
     } catch (e) {
@@ -48,10 +48,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                 var notification = event.notification;
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
-                                $ionicPopup.alert({
-                                  title: notification.Title,
-                                  template: notification.Message
-                                });
+
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
