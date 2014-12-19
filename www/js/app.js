@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize'])
+angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize', 'admobModule'])
 //angular.module('starter', ['angular-carousel'])
 
 .run(function($ionicPlatform, $ionicPopup) {
@@ -17,6 +17,12 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     } catch (e) {
           alert(e.message);
     }
+
+    admobSvcProvider.setOptions({
+        publisherId: "ca-app-pub-7925487268042880/6770099564"  // Required
+      });
+
+    admobSvc.createBannerView();
 
 
 //     ga_storage._setAccount('UA-2341193-1'); //Replace with your own

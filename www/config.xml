@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.vllaznia.app"
-        version = "2.0">
+        version = "2.1">
     <name>Vllaznia App</name>
 
     <description>
@@ -27,18 +27,6 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="auto-hide-splash-screen" value="false" />
 
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-
-    <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="com.pushapps.phonegap"/>
- <!--   <gap:plugin name="com.adobe.plugins.gaplugin" />
-        <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
--->
-
 
     <icon src="icon.png" />
     <icon src="res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:density="mdpi" />
@@ -51,6 +39,23 @@
     <gap:splash src="res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
     <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
 
+
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="org.apache.cordova.network-information" />
+
+    <gap:plugin name="nl.x-services.plugins.socialsharing" />
+    <gap:plugin name="com.pushapps.phonegap"/>
+    <gap:plugin name="com.admob.google" source="plugins.cordova.io" />
+<!--   <gap:plugin name="com.adobe.plugins.gaplugin" />
+    <gap:plugin name="com.pushwoosh.plugins.pushwoosh"/>
+-->
+
+    <gap:plugin name="org.apache.cordova.splashscreen">
+      <preference name="SplashScreen" value="splash" />
+      <preference name="SplashScreenDelay" value="10000"/>
+    </gap:plugin>
 
     <access origin="*"/>
     <access origin="ingalb.info" subdomains="true"/>

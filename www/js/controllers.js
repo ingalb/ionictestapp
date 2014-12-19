@@ -36,6 +36,11 @@ angular.module('vllaznia.controllers', [])
     .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
         var timerhide = 5000;
+        ga_storage._trackPageview('#/app/index', 'Vllaznia App Index');
+        if(navigator.splashscreen){
+           navigator.splashscreen.hide();
+        }
+
         $scope.loadNdeshje = false;
         $scope.go = function ( path ) {
           //alert(path);
