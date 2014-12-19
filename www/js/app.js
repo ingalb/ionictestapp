@@ -14,15 +14,14 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
+        admobSvcProvider.setOptions({
+            publisherId: "ca-app-pub-7925487268042880/6770099564"  // Required
+          });
+
+        admobSvc.createBannerView();
     } catch (e) {
           alert(e.message);
     }
-
-    admobSvcProvider.setOptions({
-        publisherId: "ca-app-pub-7925487268042880/6770099564"  // Required
-      });
-
-    admobSvc.createBannerView();
 
 
 //     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
