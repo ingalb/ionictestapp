@@ -400,6 +400,8 @@ angular.module('vllaznia.controllers', [])
 
 
     .controller('TvCtrl', function($scope) {
+          destroyBannerView();
+          showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
             window.open(v, "_system", "location=yes");
