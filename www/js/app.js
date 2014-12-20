@@ -54,7 +54,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
-                                var alertPopup = $ionicPopup.alert({
+                                $ionicPopup.alert({
                                 title: notification.Title,
                                 template: notification.Message
                                 });

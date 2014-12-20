@@ -401,10 +401,15 @@ angular.module('vllaznia.controllers', [])
 
 
     .controller('TvCtrl', function($scope) {
-          destroyBannerView();
-          showInterstitialAd();
+          //destroyBannerView();
+          admob.showBannerAd(false);
+          admob.showInterstitialAd(function (){}, function (e) {
+             alert(JSON.stringify(e));
+          });
+          //showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
+            ga_storage._trackEvent('TV', 'Play', v);
             window.open(v, "_system", "location=yes");
           }
     })
@@ -423,7 +428,7 @@ angular.module('vllaznia.controllers', [])
             $ionicLoading.hide();
         });
         $scope.browse = function(v) {
-          ga_storage._trackEvent('TV', 'Play', v);
+          ga_storage._trackEvent('Forumi', 'Read', v);
           window.open(v, "_system", "location=yes");
         }
         $timeout(function(){
