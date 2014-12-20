@@ -240,14 +240,16 @@ angular.module('vllaznia.controllers', [])
     })
 
 
-    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicModal) {
+    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicPopup) {
      ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App Klasifikimi');
+     var titulliPop = "Zgjidh kampionatin";
      $scope.SezoneList = [
        { text: "Superliga 2014-15", value: 100 },
        { text: "Superliga 2013-14", value: 97 },
        { text: "Superliga 2012-13", value: 86 },
-       { text: "Kategoria Pare 2014-15", value: 101 },
-       { text: "Kategoria Pare 2013-14", value: 98 }
+       { text: "Superliga 2011-12", value: 79 },
+       { text: "Superliga 2010-11", value: 15 },
+       { text: "Superliga 2009-10", value: 10 },
       ];
 
        $scope.loadingIndicator = $ionicLoading.show({
@@ -257,39 +259,44 @@ angular.module('vllaznia.controllers', [])
 	         maxWidth: 200,
 	         showDelay: 500
 	     });
-       $scope.sezoni = "2014-15";
-       $scope.sezoni_id = 100;
+       // $scope.sezoni = "2014-15";
+       // $scope.sezoni_id = 100;
+       $scope.sezoni_id = $scope.SezoneList[0].value;
+       $scope.sezoni_text = $scope.SezoneList[0].text;
+
        KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
             $scope.items = data;
             $ionicLoading.hide();
         });
 
+        // An alert dialog for change seson
+        $scope.selectKamp = function() {
+          var selectPopup = $ionicPopup.alert({
+            title: titulliPop,
+            templateUrl: 'popup-template.html',
+            scope: $scope,
+          });
+          selectPopup.then(function(res) {
+            KlasifikimiService.getAllKlasifikimi($scope.sezoni_id, function(data) {
+              $scope.items = data;
+            });
+          });
+        };
+
+      $scope.changeSezoni = function(item) {
+        $scope.sezoni_text = item.text;
+        $scope.sezoni_id = item.value;
+        KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
+            $scope.items = data;
+            selectPopup.close();
+        });
+      };
+
+
         $timeout(function(){
           $ionicLoading.hide();
+          slectPopup.close();
         },6000);
-/**
-    $ionicModal.fromTemplateUrl('popup-template.html', {
-       scope: $scope,
-       animation: 'slide-in-up'
-       }).then(function(modal) {
-       $scope.modal = modal
-    })
-
-    $scope.openModal = function() {
-      $scope.modal.show()
-    }
-
-    $scope.closeModal = function() {
-      $scope.modal.hide();
-      KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
-            $scope.items = data;
-        });
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.modal.remove();
-    });
-**/
 
     })
 

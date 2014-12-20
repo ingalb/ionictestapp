@@ -17,11 +17,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
-            autoShowInterstitial: false
+            autoShowInterstitial: true
           });
 
         admob.createBannerView();
-        admob.requestInterstitial();
+        admob.requestInterstitialAd();
     } catch (e) {
           alert(e.message);
     }
@@ -54,10 +54,16 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
-                                $ionicPopup.alert({
-                                title: notification.Title,
-                                template: notification.Message
-                                });
+                                try {
+                                  $ionicPopup.alert({
+                                    title: notification.Title,
+                                    template: notification.Message
+                                  });
+                                }
+                                catch (e) {
+                                  alert(e.message);
+                                  alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                                }
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
 
