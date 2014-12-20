@@ -16,10 +16,12 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
-            interstitialAdId: "ca-app-pub-7925487268042880/7097196767"
+            interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
+            autoShowInterstitial: false
           });
 
         admob.createBannerView();
+        admob.requestInterstitial();
     } catch (e) {
           alert(e.message);
     }
@@ -42,7 +44,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                         console.log("Error Device: " + error);
                                     });
      PushNotification.setTags([{
-        identifier: "vllaznia-test",
+        identifier: "vllaznia-popover",
         value: true
         }], function () {
         console.log("Your tag was successfully added");
@@ -50,8 +52,12 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         console.log("ERROR: " + message);
        });
 
-     document.addEventListener('pushapps.message-received', function(event) {
+     document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
+                                var alertPopup = $ionicPopup.alert({
+                                title: notification.Title,
+                                template: notification.Message
+                                });
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
 

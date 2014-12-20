@@ -123,6 +123,7 @@ angular.module('vllaznia.controllers', [])
     .controller('LajmeDetCtrl', function($scope, $sce, $stateParams, $ionicLoading, LajmeService) {
         ga_storage._trackPageview('#/app/lajmi/'+ $stateParams.lajmiId+'', 'Vllaznia App Lajme Det');
         $scope.shareL = function(message, subject, image, link){
+          ga_storage._trackEvent('Lajme', 'Share', subject);
           window.plugins.socialsharing.share(message, subject, image, link, this.onSuccess, this.onError);
         }
         $scope.loadingIndicator = $ionicLoading.show({
@@ -422,6 +423,7 @@ angular.module('vllaznia.controllers', [])
             $ionicLoading.hide();
         });
         $scope.browse = function(v) {
+          ga_storage._trackEvent('TV', 'Play', v);
           window.open(v, "_system", "location=yes");
         }
         $timeout(function(){
