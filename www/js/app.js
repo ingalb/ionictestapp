@@ -54,16 +54,13 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
+                                var PopNotification;
                                 try {
-                                  showAlert() = function(notification.Title, notification.Message)
-                                    var PopNotification = $ionicPopup.alert({
+                                  PopNotification = $ionicPopup.alert({
                                       title: notification.Title,
                                       template: notification.Message
                                     });
-                                    PopNotification.then(function(res) {
-                                      console.log('Popup shown');
-                                    });
-                                  };
+                                    alert("Notification");
                                 }
                                 catch (e) {
                                   alert(e.message);
