@@ -410,11 +410,12 @@ angular.module('vllaznia.controllers', [])
     .controller('TvCtrl', function($scope) {
           //destroyBannerView();
           //admob.showBannerAd(false);
-          admob.showInterstitialAd();
+          //admob.showInterstitialAd();
           //showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
             ga_storage._trackEvent('TV', 'Play', v);
+            admob.showInterstitialAd();
             window.open(v, "_system", "location=yes");
           }
     })

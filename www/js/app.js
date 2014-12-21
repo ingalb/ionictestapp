@@ -55,14 +55,19 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
                                 try {
-                                  $ionicPopup.alert({
-                                    title: notification.Title,
-                                    template: notification.Message
-                                  });
+                                  showAlert = function()
+                                    var PopNotification = $ionicPopup.alert({
+                                      title: notification.Title,
+                                      template: notification.Message
+                                    });
+                                    PopNotification.then(function(res) {
+                                      console.log('Popup shown');
+                                    });
+                                  };
                                 }
                                 catch (e) {
                                   alert(e.message);
-                                  alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
+                                  alert(notification.Title + "\n" + notification.Message);
                                 }
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
