@@ -50,6 +50,22 @@ angular.module('vllaznia.services', [])
               });
 
             },
+            getAllNdeshjet: function(sezoniId, clubId, callback) {
+                $http.get(URL_APP+'ndeshjet.php',{params:{id: sezoniId, ekipi: clubId}}).success(
+                    function(data) {
+                        allndeshje = data;
+                        window.localStorage["allNdeshje"] = JSON.stringify(data);
+                        callback(data);
+                    }
+                )
+                .error(function(data) {
+                   console.log("ERROR: " + data);
+                if(window.localStorage["allNdeshje"] !== undefined) {
+                    allndeshje = JSON.parse(window.localStorage["allNdeshje"]);
+                    callback(allndeshje);
+                }
+              });
+            },
             getSuperligaLastNdeshje: function(callback) {
                 $http.get(URL_APP+'ndeshjet.php?id=superliga&ekipi=13').success(
                     function(data) {

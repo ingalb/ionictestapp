@@ -5,22 +5,22 @@
   <ion-nav-buttons side="right">
     <button class="button button-icon icon ion-ios7-refresh-empty" ng-click="doRefresh()"></button>
   </ion-nav-buttons>
-  
+
   <div class="bar bar-subheader bar-assertive">
-     <h2 class="title">Superliga 2014-15</h2>
+     <h2 class="title">{{item.java}}</h2>
   </div>
 <ion-content class="has-subheader">
  <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
  </ion-refresher>
  <div class="item item-text-wrap pad0 bg-transparent">
   <div class="row bg-white">
-    <div class="col col-center">{{item.java}}<br><span>{{data | date:'dd/MM/yyyy - HH:mm'}}</span></div>
+    <div class="col col-center"><span>{{data | date:'dd/MM/yyyy - HH:mm'}}</span></div>
   </div>
   <div class="row row-top bg-white">
     <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{item.logo1}}"><br>{{item.team1}}</div>
     <div class="col col-25 col-center">
         <div ng-if="item.over==0"><a class="rezultati">{{item.gol1}} - {{item.gol2}}</a></div>
-        <div ng-if="item.over>0" class="assertive"><a class="rezultati assertive">{{item.gol1_over}} - {{item.gol2_over}}</a></div> 
+        <div ng-if="item.over>0" class="assertive"><a class="rezultati assertive">{{item.gol1_over}} - {{item.gol2_over}}</a></div>
         <div class="live">
             <div class="timer">
                <!-- <div class="percent">{{timer}}</div>
@@ -35,7 +35,7 @@
     </div>
     <div class="col col-center Vllaznia"><img class="rank" ng-src="http://www.albaniasoccer.com/{{item.logo2}}"><br>{{item.team2}}</div>
   </div>
-  <div ng-if="item.over>0" class="assertive col col-center bg-white">{{item.over_text}}</div> 
+  <div ng-if="item.over>0" class="assertive col col-center bg-white">{{item.over_text}}</div>
 
   <ion-slide-box show-pager="false">
     <ion-slide>
@@ -56,7 +56,7 @@
        </div>
      </div>
     </ion-slide>
-   
+
     <ion-slide>
        <div class="item item-divider item-assertive col-center">Lojtaret</div>
        <div class="row">

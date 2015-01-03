@@ -64,7 +64,8 @@ angular.module('vllaznia.controllers', [])
         });
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
             //alert(tani);
-            $scope.items = data;
+            //$scope.items = data;
+            $scope.items = data.slice(0,2);
             $ionicLoading.hide();
             $scope.loadNdeshje = true;
         });
@@ -85,7 +86,8 @@ angular.module('vllaznia.controllers', [])
         $timeout(update, 12000);
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
             //console.log(tani);
-            $scope.items = data;
+            //$scope.items = data;
+            $scope.items = data.slice(0,2);
         });
        }());
 
@@ -137,8 +139,24 @@ angular.module('vllaznia.controllers', [])
         $ionicLoading.hide();
     })
 
-    .controller('NdeshjetCtrl', function($scope, $sce, $timeout, $ionicLoading, NdeshjetService) {
+    .controller('NdeshjetCtrl', function($scope, $sce, $timeout, $ionicLoading, $ionicPopover, NdeshjetService) {
       ga_storage._trackPageview('#/app/ndeshjet', 'Vllaznia App Ndeshjet');
+
+      $scope.clubId = 13;
+
+      $scope.SezoneList = [
+        { text: "Superliga 2014-15", value: 100 },
+        { text: "Superliga 2013-14", value: 97 },
+        { text: "Superliga 2012-13", value: 86 },
+        { text: "Superliga 2011-12", value: 79 },
+        { text: "Superliga 2010-11", value: 15 },
+        { text: "Superliga 2009-10", value: 10 },
+       ];
+
+
+      $scope.sezoni_id = $scope.SezoneList[0].value;
+      $scope.sezoni_text = $scope.SezoneList[0].text;
+
       $scope.loadingIndicator = $ionicLoading.show({
 	    content: 'Loading Data',
 	    animation: 'fade-in',
@@ -146,7 +164,25 @@ angular.module('vllaznia.controllers', [])
 	    maxWidth: 200,
 	    showDelay: 500
 	   });
-     NdeshjetService.getSuperligaVllaznia(function(data) {
+
+     $ionicPopover.fromTemplateUrl('popover-template.html', {
+        scope: $scope,
+      }).then(function(popover) {
+        $scope.popover = popover;
+      });
+
+      $scope.changeSezoni = function(item) {
+        $scope.sezoni_text = item.text;
+        $scope.sezoni_id = item.value;
+        $scope.popover.hide();
+        NdeshjetService.getAllNdeshjet($scope.sezoni_id, $scope.clubId, function(data) {
+            $scope.items = data;
+            //selectPopup.close();
+            $scope.popover.hide();
+        });
+      };
+
+     NdeshjetService.getAllNdeshjet($scope.sezoni_id, $scope.clubId, function(data) {
             $scope.items = data;
             $ionicLoading.hide();
         });
@@ -162,12 +198,12 @@ angular.module('vllaznia.controllers', [])
        var d1, minuti, percenti;
        //$scope.minuta = "minuta";
        $scope.loadingIndicator = $ionicLoading.show({
-	    content: 'Loading Data',
-	    animation: 'fade-in',
-	    showBackdrop: true,
-	    maxWidth: 200,
-	    showDelay: 100
-	});
+	        content: 'Loading Data',
+	        animation: 'fade-in',
+	        showBackdrop: true,
+	        maxWidth: 200,
+	        showDelay: 100
+	    });
        $scope.percent = Math.floor(time/90*100);
        $scope.percenti=time;
        $scope.options = {
@@ -240,7 +276,7 @@ angular.module('vllaznia.controllers', [])
     })
 
 
-    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicPopup) {
+    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicPopover) {
      ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App Klasifikimi');
      var titulliPop = "Zgjidh kampionatin";
      $scope.SezoneList = [
@@ -259,6 +295,13 @@ angular.module('vllaznia.controllers', [])
 	         maxWidth: 200,
 	         showDelay: 500
 	     });
+
+       $ionicPopover.fromTemplateUrl('popover-template.html', {
+          scope: $scope,
+        }).then(function(popover) {
+          $scope.popover = popover;
+        });
+
        // $scope.sezoni = "2014-15";
        // $scope.sezoni_id = 100;
        $scope.sezoni_id = $scope.SezoneList[0].value;
@@ -270,7 +313,7 @@ angular.module('vllaznia.controllers', [])
         });
 
         // An alert dialog for change seson
-        $scope.selectKamp = function() {
+/**        $scope.selectKamp = function() {
           var selectPopup = $ionicPopup.alert({
             title: titulliPop,
             templateUrl: 'popup-template.html',
@@ -282,20 +325,23 @@ angular.module('vllaznia.controllers', [])
             });
           });
         };
-
+**/
       $scope.changeSezoni = function(item) {
         $scope.sezoni_text = item.text;
         $scope.sezoni_id = item.value;
+        $scope.popover.hide();
         KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
             $scope.items = data;
-            selectPopup.close();
+            //selectPopup.close();
+            $scope.popover.hide();
         });
       };
 
 
         $timeout(function(){
           $ionicLoading.hide();
-          selectPopup.close();
+          //selectPopup.close();
+          $scope.popover.hide();
         },6000);
 
     })
@@ -412,10 +458,11 @@ angular.module('vllaznia.controllers', [])
           //admob.showBannerAd(false);
           //admob.showInterstitialAd();
           //showInterstitialAd();
+          admob.showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
             ga_storage._trackEvent('TV', 'Play', v);
-            admob.showInterstitialAd();
+            //admob.showInterstitialAd();
             window.open(v, "_system", "location=yes");
           }
     })
