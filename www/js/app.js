@@ -39,9 +39,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         function(status) {
             var pushToken = status;
             console.warn('push token: ' + pushToken);
+            alert("ok" + pushToken);
         },
         function(status) {
             console.warn(JSON.stringify(['failed to register ', status]));
+            alert("fail" + status);
         }
     );
 
