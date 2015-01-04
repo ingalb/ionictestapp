@@ -30,6 +30,37 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
 //     ga_storage._trackPageview('/index.html');
 
+ //Pushwoosh notification
+ //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+    pushNotification.onDeviceReady({ projectid: "455582282730", appid : "1539D-59149" });
+
+    //register for pushes
+    pushNotification.registerDevice(
+        function(status) {
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
+
+document.addEventListener('push-notification', function(event) {
+    //event.notification is a JSON push notifications payload
+    var title = event.notification.title;
+
+    //example of obtaining custom data from push notification
+    var userData = event.notification.userdata;
+
+    console.warn('user data: ' + JSON.stringify(userData));
+
+    //we might want to display an alert with push notifications title
+    alert(title);
+});
+
+
+//Pushapps notification
+/*
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
       console.log("My push token: " + pushToken);
       },
@@ -71,6 +102,8 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
+
+**/
 
 //   alert("Ready");
 /*     gaPlugin = window.plugins.gaPlugin;

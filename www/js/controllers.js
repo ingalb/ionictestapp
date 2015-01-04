@@ -139,7 +139,7 @@ angular.module('vllaznia.controllers', [])
         $ionicLoading.hide();
     })
 
-    .controller('NdeshjetCtrl', function($scope, $sce, $timeout, $ionicLoading, $ionicPopover, NdeshjetService) {
+    .controller('NdeshjetCtrl', function($scope, $sce, $timeout, $ionicLoading, $ionicBackdrop, $ionicPopover, NdeshjetService) {
       ga_storage._trackPageview('#/app/ndeshjet', 'Vllaznia App Ndeshjet');
 
       $scope.clubId = 13;
@@ -175,10 +175,13 @@ angular.module('vllaznia.controllers', [])
         $scope.sezoni_text = item.text;
         $scope.sezoni_id = item.value;
         $scope.popover.hide();
+        //$scope.loadingIndicator.show;
+        $ionicBackdrop.retain();
         NdeshjetService.getAllNdeshjet($scope.sezoni_id, $scope.clubId, function(data) {
             $scope.items = data;
             //selectPopup.close();
             $scope.popover.hide();
+            $ionicBackdrop.release();
         });
       };
 
@@ -276,7 +279,7 @@ angular.module('vllaznia.controllers', [])
     })
 
 
-    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, KlasifikimiService, $ionicPopover) {
+    .controller('KlasifikimiCtrl', function($scope, $stateParams, $timeout, $ionicLoading, $ionicBackdrop, KlasifikimiService, $ionicPopover) {
      ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App Klasifikimi');
      var titulliPop = "Zgjidh kampionatin";
      $scope.SezoneList = [
@@ -330,10 +333,12 @@ angular.module('vllaznia.controllers', [])
         $scope.sezoni_text = item.text;
         $scope.sezoni_id = item.value;
         $scope.popover.hide();
+        $ionicBackdrop.retain();
         KlasifikimiService.getAllKlasifikimi($scope.sezoni_id,function(data) {
             $scope.items = data;
             //selectPopup.close();
-            $scope.popover.hide();
+          //$scope.popover.hide();
+            $ionicBackdrop.release();
         });
       };
 
@@ -342,6 +347,7 @@ angular.module('vllaznia.controllers', [])
           $ionicLoading.hide();
           //selectPopup.close();
           $scope.popover.hide();
+        //  $ionicBackdrop.release();
         },6000);
 
     })
