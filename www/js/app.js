@@ -31,6 +31,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //     ga_storage._trackPageview('/index.html');
 
  //Pushwoosh notification
+    var pushNotification = window.plugins.pushNotification;
  //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
     pushNotification.onDeviceReady({ projectid: "455582282730", appid : "1539D-59149" });
 
@@ -39,11 +40,11 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         function(status) {
             var pushToken = status;
             console.warn('push token: ' + pushToken);
-            alert("ok" + pushToken);
+            alert("ok");
         },
         function(status) {
             console.warn(JSON.stringify(['failed to register ', status]));
-            alert("fail" + status);
+            alert("fail");
         }
     );
 
