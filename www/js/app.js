@@ -1,5 +1,4 @@
 // Ionic Starter App
-
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -30,6 +29,8 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 //     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
 //     ga_storage._trackPageview('/index.html');
 
+/**
+
  //Pushwoosh notification
     var pushNotification = window.plugins.pushNotification;
  //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
@@ -40,13 +41,14 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         function(status) {
             var pushToken = status;
             console.warn('push token: ' + pushToken);
-            alert("ok");
+            //alert("ok");
         },
         function(status) {
             console.warn(JSON.stringify(['failed to register ', status]));
-            alert("fail");
+            //alert("fail");
         }
     );
+
 
 document.addEventListener('push-notification', function(event) {
     //event.notification is a JSON push notifications payload
@@ -58,12 +60,12 @@ document.addEventListener('push-notification', function(event) {
     console.warn('user data: ' + JSON.stringify(userData));
 
     //we might want to display an alert with push notifications title
-    alert(title);
+    //alert(title);
 });
-
+**/
 
 //Pushapps notification
-/*
+
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
       console.log("My push token: " + pushToken);
       },
@@ -105,8 +107,6 @@ document.addEventListener('push-notification', function(event) {
 
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
-
-**/
 
 //   alert("Ready");
 /*     gaPlugin = window.plugins.gaPlugin;
