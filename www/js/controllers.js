@@ -487,7 +487,7 @@ angular.module('vllaznia.controllers', [])
           //admob.showBannerAd(false);
           //admob.showInterstitialAd();
           //showInterstitialAd();
-          admob.showInterstitialAd();
+        //  admob.showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
             ga_storage._trackEvent('TV', 'Play', v);
