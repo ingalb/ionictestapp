@@ -1,29 +1,6 @@
 angular.module('vllaznia.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicPopup) {
-
-  document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
-                             var notification = event.notification;
-                             var PopNotification;
-                             try {
-                               PopNotification = $ionicPopup.alert({
-                                   title: notification.Title,
-                                   template: notification.Message
-                                 });
-                                 alert("Notification");
-                             }
-                             catch (e) {
-                               alert(e.message);
-                               alert(notification.Title + "\n" + notification.Message);
-                             }
-                             // This is the entire object, just take the wanted property
-                             console.log("Recive Notification" + notification);
-
-                           //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
-                           });
-
-
-
 })
 
     .filter('html',function($sce){

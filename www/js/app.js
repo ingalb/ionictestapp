@@ -13,6 +13,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         ga_storage._setAccount('UA-2341193-9');
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
+/**
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
@@ -21,6 +22,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
         admob.createBannerView();
         admob.requestInterstitialAd();
+**/
     } catch (e) {
           alert(e.message);
     }
@@ -49,7 +51,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
        }, function (message) {
         console.log("ERROR: " + message);
        });
-/**
+
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
                                 var PopNotification;
@@ -61,8 +63,8 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                                     alert("Notification");
                                 }
                                 catch (e) {
-                                  alert(e.message);
-                                  alert(notification.Title + "\n" + notification.Message);
+                                //  alert(e.message);
+                                //  alert(notification.Title + "\n" + notification.Message);
                                 }
                                 // This is the entire object, just take the wanted property
                                 console.log("Recive Notification" + notification);
@@ -70,7 +72,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
-**/
+
 
   // alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
