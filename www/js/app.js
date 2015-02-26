@@ -26,44 +26,6 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
     }
 
 
-//     ga_storage._setAccount('UA-2341193-1'); //Replace with your own
-//     ga_storage._trackPageview('/index.html');
-
-/**
-
- //Pushwoosh notification
-    var pushNotification = window.plugins.pushNotification;
- //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
-    pushNotification.onDeviceReady({ projectid: "455582282730", appid : "1539D-59149" });
-
-    //register for pushes
-    pushNotification.registerDevice(
-        function(status) {
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-            //alert("ok");
-        },
-        function(status) {
-            console.warn(JSON.stringify(['failed to register ', status]));
-            //alert("fail");
-        }
-    );
-
-
-document.addEventListener('push-notification', function(event) {
-    //event.notification is a JSON push notifications payload
-    var title = event.notification.title;
-
-    //example of obtaining custom data from push notification
-    var userData = event.notification.userdata;
-
-    console.warn('user data: ' + JSON.stringify(userData));
-
-    //we might want to display an alert with push notifications title
-    //alert(title);
-});
-**/
-
 //Pushapps notification
 
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
@@ -87,7 +49,7 @@ document.addEventListener('push-notification', function(event) {
        }, function (message) {
         console.log("ERROR: " + message);
        });
-
+/**
      document.addEventListener('pushapps.message-received', function(event, $ionicPopup) {
                                 var notification = event.notification;
                                 var PopNotification;
@@ -108,33 +70,8 @@ document.addEventListener('push-notification', function(event) {
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
 
-//   alert("Ready");
-/*     gaPlugin = window.plugins.gaPlugin;
-     gaPlugin.init(function(msg) {
-                    console.log("ga loaded "+msg);
-                },
-                function(msg) {
-                    console.log("ga failed "+msg);
-                }, "UA-2341193-8", 10);
-*/
-//   alert("Ready 1");
-//     pushNotification = window.plugins.pushNotification;
-//   alert("Ready 2");
-//     pushNotification.onDeviceReady();
-//   alert("Ready 3");
-/*     pushNotification.registerDevice({ projectid: "455582282730", appid : "1539D-59149" },
-        function(status) {
-            //this is push token
-            var pushToken = status;
-            console.warn('push token: ' + pushToken);
-            alert("Ok reg");
-        },
-        function(status) {
-            console.warn(JSON.stringify(['failed to register ', status]));
-            alert("Failed reg");
-        }
-    );
-*/
+**/
+
   // alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
