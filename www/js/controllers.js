@@ -1,6 +1,6 @@
 angular.module('vllaznia.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicPopup) {
+.controller('AppCtrl', function($scope) {
 })
 
     .filter('html',function($sce){
@@ -83,7 +83,7 @@ angular.module('vllaznia.controllers', [])
 
 
      (function update() {
-        $timeout(update, 12000);
+        $timeout(update, 1200);
         NdeshjetService.getSuperligaLastNdeshje(function(data) {
             //console.log(tani);
             //$scope.items = data;
@@ -464,7 +464,7 @@ angular.module('vllaznia.controllers', [])
           //admob.showBannerAd(false);
           //admob.showInterstitialAd();
           //showInterstitialAd();
-        //  admob.showInterstitialAd();
+          admob.showInterstitialAd();
           ga_storage._trackPageview('#/app/tv', 'Vllaznia App TV');
           $scope.browse = function(v) {
             ga_storage._trackEvent('TV', 'Play', v);
