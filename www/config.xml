@@ -47,7 +47,7 @@
 
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="com.pushapps.phonegap"/>
-    <gap:plugin name="com.admob.google" source="plugins.cordova.io" />
+<!--<gap:plugin name="com.admob.google" source="plugins.cordova.io" />-->
 <!-- <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.4.5" source="plugins.cordova.io" -->
 <!-- <gap:plugin name="com.admob.google" source="plugins.cordova.io" />-->
 <!-- <gap:plugin name="com.adobe.plugins.gaplugin" />
