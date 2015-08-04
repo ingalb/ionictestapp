@@ -28,7 +28,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
 
 //Pushapps notification
-
+/**
      PushNotification.registerDevice('455582282730', '9128f99a-4783-4c6e-803d-a77f13d332ca', function (pushToken) {
       console.log("My push token: " + pushToken);
       },
@@ -70,8 +70,22 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
                               //alert("message-received, Message: " + notification.Message + " , Title: " + notification.Title + " , D: " + notification.D);
                               });
+ **/
 
 
+var notificationOpenedCallback = function(jsonData) {
+      //alert("Notification received:\n" + JSON.stringify(jsonData));
+      console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+
+      // firing an event downwards
+      $rootScope.$broadcast('pushEvent', jsonData);
+    };
+
+    // Update with your OneSignal AppId and googleProjectNumber before running.
+    window.plugins.OneSignal.init("fb965b9c-e77a-11e4-a9ea-97388ec7efa9",
+                                   {googleProjectNumber: "455582282730"},
+                                   notificationOpenedCallback);
+  });
 
   // alert("Ready");
    if(window.cordova && window.cordova.plugins.Keyboard) {
