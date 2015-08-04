@@ -16,9 +16,11 @@
     <preference name="LogLevel" value="VERBOSE"/>
     <preference name="debuggable" value="true"/>
 
-    <gap:plugin name="com.admob.google" source="plugins.cordova.io" />
+    <gap:plugin name="com.admob.google" version="2.0.14" source="plugins.cordova.io" />
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="com.pushapps.phonegap"/>
+    <gap:plugin name="com.onesignal.plugins.onesignal" />
+    
+    <!--<gap:plugin name="com.pushapps.phonegap"/>-->
 
     <preference name="permissions"  value="none"/>
 
