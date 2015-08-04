@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.vllaznia.app"
-        version = "2.1">
+        version = "2.2">
     <name>Vllaznia App</name>
 
     <description>
@@ -19,6 +19,7 @@
 <!--    <gap:plugin name="com.admob.google" version="2.0.14" source="plugins.cordova.io" />-->
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
     <gap:plugin name="com.onesignal.plugins.onesignal" />
+    <gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
     
     <!--<gap:plugin name="com.pushapps.phonegap"/>-->
 
