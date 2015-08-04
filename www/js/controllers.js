@@ -44,7 +44,7 @@ angular.module('vllaznia.controllers', [])
 
  $scope.CloseNotification = function() {
     $scope.modal.hide();
-    notifica();
+    //notifica();
   };
 
   $ionicModal.fromTemplateUrl('templates/modal.html', function($ionicModal) {
@@ -57,8 +57,8 @@ angular.module('vllaznia.controllers', [])
   });
 
   var notifica = $rootScope.$on('pushEvent', function(event,message){
-  
-       $scope.titulli="Push Notification";
+       ga_storage._trackPageview('#/app/notifica', 'Push Open');
+       $scope.titulli="Njoftim";
        $scope.teksti=message.message;
        $scope.modal.show();    
   });
