@@ -6,7 +6,7 @@
 angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers', 'easypiechart', 'ngSanitize', 'admobModule'])
 //angular.module('starter', ['angular-carousel'])
 
-.run(function($ionicPlatform, $ionicPopup) {
+.run(function($ionicPlatform, $ionicPopup, $rootScope) {
 
   $ionicPlatform.ready(function() {
     try{
