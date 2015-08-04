@@ -14,6 +14,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Home');
         //ga_storage._trackPageview('#/app/klasifikimi', 'Vllaznia App klasifikimi');
 
+  /**      
         admob.setOptions({
             publisherId: "ca-app-pub-7925487268042880/6770099564",  // Required
             interstitialAdId: "ca-app-pub-7925487268042880/7097196767",
@@ -22,6 +23,7 @@ angular.module('vllaznia', ['ionic', 'vllaznia.services', 'vllaznia.controllers'
 
         admob.createBannerView();
         admob.requestInterstitialAd();
+  **/
     } catch (e) {
           alert(e.message);
     }
