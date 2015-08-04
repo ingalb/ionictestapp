@@ -33,13 +33,37 @@ angular.module('vllaznia.controllers', [])
     };
   })
 
-    .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
+    .controller('IndexCtrl', function($scope, $ionicSlideBoxDelegate, $state, $ionicModal, $rootScope, $timeout, $ionicLoading, LajmeService, NdeshjetService) {
         var tani = new Date();
         var timerhide = 5000;
         ga_storage._trackPageview('#/app/index', 'Vllaznia App Index');
         if(navigator.splashscreen){
            navigator.splashscreen.hide();
         }
+
+
+ $scope.CloseNotification = function() {
+    $scope.modal.hide();
+    notifica();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal.html', function($ionicModal) {
+    $scope.modal = $ionicModal;
+  }, {
+    // Use our scope for the scope of the modal to keep it simple
+    scope: $scope,
+    // The animation we want to use for the modal entrance
+    animation: 'slide-in-up'
+  });
+
+  var notifica = $rootScope.$on('pushEvent', function(event,message){
+  
+       $scope.titulli="Push Notification";
+       $scope.teksti=message.message;
+       $scope.modal.show();    
+  });
+
+
 
         $scope.loadNdeshje = false;
         $scope.go = function ( path ) {
